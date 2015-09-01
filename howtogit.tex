@@ -15,6 +15,8 @@ basicstyle={\ttfamily}
 }
 
 %Custom Commands
+\newcommand{\git}{{\texttt{git}}}
+\newcommand{\github}{{\texttt{Github}}}
 
 \begin{document}
 
@@ -25,13 +27,37 @@ basicstyle={\ttfamily}
 
 This is how we git.
 
+\section{Why we \git}
+
+\subsection{What is \git?}
+
+\git\ is Version Control Software, software that tracks, remembers, and restores data over time.  Version Control Software (VCS) is incredibly important for any long term project.  At the very least, it can act as a backup in the case of accidental data loss (a failed disk or a misplaced \texttt{rm -rf *}).  Day to day it serves as a way to look back to older versions of your project, which can be very useful for testing and restoring lost functionality.  At its best, VCS encourages you to make changes to your project, sometimes sweeping ones, secure in the knowledge you can always restore to a previous version if something breaks.  A good VCS platform will also allow you to easily share your project on multiple computers, keeping all versions up to date to the latest changes with a minimal effort on the user's part.
+
+There are several VCS platforms in use currently.  \git\ is the best one.  It is built on knowledge gained from older platforms like SVN, and it has \github .  A \git\ project is called a ``repository,'' or ``repo'' for short.
+
+\subsection{What is \github?}
+
+\github\ is a website that hosts remote \git\ repos.  It is free to use and provides a great deal of functionality for sharing, merging, and forking code bases.  It provides all repositories with a webpage, wiki page, and forum for tracking issues and conversations between developers.  It is incredibly useful.
+
+\subsection{So?}
+
+The combination of \git\ and \github\ is incredibly powerful.  Multiple users can work on the same repository, keep local copies up to date on multiple machines, and consistently follow up on issues and edits.  At the very least, it is a very reliable backup system and way to keep code up to date on several computers.  
+
+There is a deeper reason for this too: scientific reproducibility.  As scientists, it is our responsibility to ensure all our results are replicable and reproducible.  All of our codes are constantly in a state of development, we're modifying the source code all the time to run new simulations or refine old ones.  Sometimes new versions of a code won't replicate old results.  With \git\ and \github\ you always have access to older versions of your code, so it is always possible to reproduce any result you have made.  It is possible to do this with some other method (save an old version of your code in another folder, or on a website).  It is possible to keep backups of your code (on an external hard drive).  It is possible to move your code by \texttt{scp} and e-mail.  \git\ and \github\  allow you to do all of these things with a single workflow, which is really where their power lies.  So, we should all use \git\ for everything, all the time!
+
+\section{Installation and Configuration}
+
+\git is available from \texttt{https://git-scm.com/}, and is included in package managers for Linux and OSX.  Installation is very standard, and should give you no trouble.
+
+After installation, you want to configure \git\ so that it knows who you are. All edits to projects, called ``commits,'' are tagged with your name and email.  To make sure the correct ones are used, run:
+
 \begin{lstlisting}
-code = code
-Code code
-$ this is a command
-$ git add file.c
+$ git config --global user.name "Johannes Kepler"
+$ git config --global user.email johannes.kepler@gmail.com
 \end{lstlisting}
 
-More text text text.
+Make an account on \github\ (\texttt{github.com}).  The email should probably be the same email you configured \git\ with.  Give your public SSH keys to \github\ by following the instructions here: (\texttt{https://help.github.com/articles/generating-ssh-keys/}).  Do this on every machine you want to have access to your project, including remote servers.  This allows you to push and pull code from these machines back to the \github\ servers.
+
+You are set up and ready to use \git\ like a pro!  Or at least like a rank amateur like me.
 
 \end{document}
