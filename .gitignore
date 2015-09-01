@@ -1,0 +1,9 @@
+# OSX Junk
+.DS_Store
+
+# Latex Build products
+*.log
+*.aux
+*.synctex.gz
+*.pdf
+
