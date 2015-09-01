@@ -1,41 +1,20 @@
-\documentclass[11pt]{amsart}
-%\usepackage{a4wide}
+\documentclass[14pt]{amsart}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{epstopdf}
-\usepackage{float}
-\usepackage{amsfonts}
-\usepackage{natbib}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{overpic}
+\usepackage{listings}
 
-%\textwidth 6.5in
-%\textheight 8.5in
-%\topmargin = 0mm
-%\evensidemargin = 0mm
-%\oddsidemargin = 0mm
+%Listings Settings
+\lstset{frame=tb,
+language=bash,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\ttfamily}
+}
 
 %Custom Commands
-\newcommand{\beq}{\begin{equation}}
-\newcommand{\eeq}{\end{equation}}
-\newcommand{\ba}{\begin{align}}
-\newcommand{\ea}{\end{align}}
-
-\newcommand{\al}{\alpha}
-\newcommand{\be}{\beta}
-\newcommand{\si}{\sigma}
-\newcommand{\Si}{\Sigma}
-\newcommand{\Ga}{\Gamma}
-\newcommand{\ga}{\gamma}
-\newcommand{\de}{\delta}
-\newcommand{\De}{\Delta}
-\newcommand{\eps}{\epsilon}
-\newcommand{\ka}{\kappa}
-\newcommand{\lam}{\lambda}
-\newcommand{\pd}{\partial}
-\newcommand{\dd}{\mbox{d}}
-
 
 \begin{document}
 
@@ -45,5 +24,14 @@
 \maketitle
 
 This is how we git.
+
+\begin{lstlisting}
+code = code
+Code code
+$ this is a command
+$ git add file.c
+\end{lstlisting}
+
+More text text text.
 
 \end{document}
