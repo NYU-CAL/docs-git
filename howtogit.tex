@@ -101,41 +101,7 @@ Initialized empty Git repository in /Users/geoff/Projects/gitdemo/.git/
 \end{lstlisting}
 You now have a git repo in your project.  ALL \git\ data for a repo is stored in \texttt{.git/}, located in the top level directory of your project.  If you ever want to delete your entire repo and all its history while leaving your project data in its current state, simply \texttt{rm -rf .git/*} to remove \git\ entirely from your project.
 
-Add some files to your repo. Always have a \texttt{README} with some basic information and a \texttt{.gitignore} to make git ignore temporary or compiled files.  A basic README:
-\begin{lstlisting}
-$ cat README
-This is a demo project written by Geoff Ryan for the NYU CAL group.
-
-No installation required, but this is a GREAT place for installation
-instructions and basic documentation.
-\end{lstlisting}
-
-And a simple \texttt{.gitignore} file.
-
-\begin{lstlisting}
-$ cat .gitignore
-#Basic gitignore file
-
-# Compiled binaries
-bin/*
-
-# C object files
-*.o
-
-# Compiled Python files
-*.pyc
-
-# OSX Junk
-.DS_Store
-
-# Latex
-*.log
-*.aux
-*.synctex.gz
-*.pdf
-\end{lstlisting}
-
-Of course these should be customized for your project.  Now add them and any other current files in your project, and commit!
+Add some files to your repo. Always have a \texttt{README} with some basic information and a \texttt{.gitignore} to make git ignore temporary or compiled files.  Samples for these files are at the end of this document, feel free to customize/modify them as you need.  Once they're ready you can add them to the repo and make your first commit.
 
 \begin{lstlisting}
 $ git add README
@@ -165,7 +131,52 @@ Branch master set up to track remote branch master from origin.
 \end{lstlisting}
 Refresh the \github\ page and you'll see your repository!  Voila, a new project.  
 
+\section{Sample Files}
 
+Some sample files.
+
+\subsection{README.md}
+
+Basic \texttt{README} file.
+
+\begin{lstlisting}
+# My Project #
+My Name
+
+This is my project, it does really neat stuff!
+
+Installation:
+Requires MPI and HDF5.
+$ cp Makefile.in.template Makefile.in
+$ make
+
+\end{lstlisting}
+
+\subsection{.gitignore}
+
+The \texttt{.gitignore} instructs \git\ not to track certain files.  These may compiled binaries, temporary files, data files, anything that is not completely necessary for the project.
+
+\begin{lstlisting}
+#Basic gitignore file
+
+# Compiled binaries
+bin/*
+
+# C object files
+*.o
+
+# Compiled Python files
+*.pyc
+
+# OSX Junk
+.DS_Store
+
+# Latex
+*.log
+*.aux
+*.synctex.gz
+*.pdf
+\end{lstlisting}
 
 
 \end{document}
