@@ -85,4 +85,87 @@ Useful quick references. Both of these seem pretty solid, pick one you like!
 
 \texttt{https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf}
 
+
+\section{Workflow}
+
+It can take a little while to develop your own workflow.  This is an example of how you can start, modify, and share a project.  Adding \git\ to your workflow can be awkward at first, but most of the time you will only use 3 commands with any frequency.  The goal is to spend as little time thinking about \git\ as possible!  
+
+\subsection{Begin a Project}
+
+Say you have an existing project, or are about to start a new one.  These days I turn every project I work on, even papers or documents for teaching, into \git\ repos.  Most of these I put on \github\ as well!  Here's how to do that.
+
+Navigate into the project's directory and immediately type:
+\begin{lstlisting}
+$ git init
+Initialized empty Git repository in /Users/geoff/Projects/gitdemo/.git/
+\end{lstlisting}
+You now have a git repo in your project.  ALL \git\ data for a repo is stored in \texttt{.git/}, located in the top level directory of your project.  If you ever want to delete your entire repo and all its history while leaving your project data in its current state, simply \texttt{rm -rf .git/*} to remove \git\ entirely from your project.
+
+Add some files to your repo. Always have a \texttt{README} with some basic information and a \texttt{.gitignore} to make git ignore temporary or compiled files.  A basic README:
+\begin{lstlisting}
+$ cat README
+This is a demo project written by Geoff Ryan for the NYU CAL group.
+
+No installation required, but this is a GREAT place for installation
+instructions and basic documentation.
+\end{lstlisting}
+
+And a simple \texttt{.gitignore} file.
+
+\begin{lstlisting}
+$ cat .gitignore
+#Basic gitignore file
+
+# Compiled binaries
+bin/*
+
+# C object files
+*.o
+
+# Compiled Python files
+*.pyc
+
+# OSX Junk
+.DS_Store
+
+# Latex
+*.log
+*.aux
+*.synctex.gz
+*.pdf
+\end{lstlisting}
+
+Of course these should be customized for your project.  Now add them and any other current files in your project, and commit!
+
+\begin{lstlisting}
+$ git add README
+$ git add .gitignore
+$ git add <any_other_files>
+$ git commit -a
+[master (root-commit) f6e9e0b] First commit.
+ 2 files changed, 23 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README
+\end{lstlisting}
+
+When you enter the \texttt{git commit} command, a text editor will open with some explanatory text and a place to enter a message your commit.  This message was ``First commit.''  You can choose which text editor git uses with \texttt{git config --global core.editor vim}, or use the \texttt{-m "message"} argument for \texttt{git commit}.
+
+Lastly, make a repository on \github\ for your project.  Always do this.  Give it a name (here \texttt{"git-demo"}), a short description, and uncheck the ``Initialize with a README'' box.  Click ``Create Repository''.  Then type the following into your shell (replacing \texttt{"username""} with your own username of course!):
+\begin{lstlisting}
+$ git remote add origin git@github.com:username/git-demo.git
+$ git push -u origin master
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 518 bytes | 0 bytes/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To git@github.com:geoffryan/git-demo.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+\end{lstlisting}
+Refresh the \github\ page and you'll see your repository!  Voila, a new project.  
+
+
+
+
 \end{document}
