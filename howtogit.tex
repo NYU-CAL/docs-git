@@ -131,6 +131,65 @@ Branch master set up to track remote branch master from origin.
 \end{lstlisting}
 Refresh the \github\ page and you'll see your repository!  Voila, a new project.  
 
+\subsection{Just regular working}
+
+This is what you'll be doing most of the time.  Modifying files, testing new features. Whenever you have implemented a new feature, patched a bug, or completed some small amount of work, you should make a new commit.  You can make as many new commits as you want, some people commit every few minutes.  If your project has code, it is a good idea to check the code still compiles before you commit.
+
+When you are ready to commit run a \texttt{git status}.
+
+\begin{lstlisting}
+$ git status
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   src/func.c
+
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+You have modified a file, and your local repo is ahead of \texttt{origin}.  That is fine, you're ready to commit.
+\begin{lstlisting}
+$ git commit -a
+[master 5dcacb3] modified func
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+\end{lstlisting}
+And that's it!  You are version controlling your code.
+
+After a little while, at the end of the day or after you've implemented and tested a new feature, it's probably time to push your updated version of the code to \texttt{origin}, the remote repo on \github.  This serves to back up your work, share your work with others on the project, and as a nice milestone for you to say ``I accomplished something today.''  
+
+Do a \texttt{git status} to double check all your changes are committed.
+
+\begin{lstlisting}
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+\end{lstlisting}
+
+Everything is clean, so you're good to push!
+
+\begin{lstlisting}
+$ git push origin
+Counting objects: 11, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (11/11), 1.11 KiB | 0 bytes/s, done.
+Total 11 (delta 2), reused 0 (delta 0)
+To git@github.com:geoffryan/git-demo.git
+   f6e9e0b..5dcacb3  master -> master
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+\end{lstlisting}
+
+This assumes no one else has pushed to this branch since your last push, which is usually the case.  We'll cover more complicated things later.
+
+A normal workflow for the day looks like: \texttt{work} $\rightarrow$ \texttt{status} $\rightarrow$ \texttt{commit} $\rightarrow$ \texttt{work} $\rightarrow$ \texttt{status} $\rightarrow$ \texttt{commit} $\rightarrow$ \texttt{work} $\rightarrow \dots \rightarrow$  \texttt{commit} $\rightarrow$ \texttt{status} $\rightarrow$ \texttt{push}.
+
 \section{Sample Files}
 
 Some sample files.
